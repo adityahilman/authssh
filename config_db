@@ -1,0 +1,10 @@
+#!/bin/bash
+########################################
+#   Database Config AUTHSSH            #
+#   Aditya Hilman ( 11140054)          #
+#   aditya.hilman@gmail.com            #
+########################################
+DB_NAME='AUTHSSH'
+DB_USER='root'
+DB_PASSWORD='hilman'
+DB_HOST='localhost'

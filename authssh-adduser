@@ -1,0 +1,26 @@
+#!/bin/bash
+# --- Database Config ---
+DB_NAME='AUTHSSH'
+DB_USER='root'
+DB_PASSWORD='hilman'
+
+# --- Function variable user --- #
+function input_user() {
+	echo -n "Type username : "
+	read user_name
+	echo -n "Phone number : "
+	read phone
+	echo "$user_name - $phone"
+}
+
+function mysql_insert_user() {
+	mysql -u$DB_USER -p$DB_PASSWORD -e "insert into USER(USER_NAME, PHONE_NUMBER) values ('$user_name', '$phone')" $DB_NAME
+}
+
+input_user
+mysql_insert_user
+if [[ $? -eq 0 ]]; then
+	echo "OK"
+else
+	echo "Failed"
+fi

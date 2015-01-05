@@ -1,0 +1,9 @@
+#!/bin/bash
+echo -n "type username : "
+read user_name
+check_user=`mysql -uroot -philman -e "select USER_NAME, PHONE_NUMBER from USER where USER_NAME = '$user_name'" AUTHSSH | tail -n 1 | awk -F " " '{ print $1 }'`
+if [ -z $check_user  ]; then
+	echo "user not found"
+else
+	echo "user : $check_user"
+fi
